@@ -11,7 +11,7 @@ var debug03 = "debug03";
 var debug04 = "debug04";
 var deliverable = "will send this to dec";
 
-function processDebugFields() {
+function processFields() {
   var salt4now = CryptoJS.lib.WordArray.random(128/8);
   var key512Bits1000Iterations = CryptoJS.PBKDF2(enckey, salt4now, { keySize: 512/32, iterations: 1000 });
   debug02 = atob(key512Bits1000Iterations);
@@ -41,7 +41,7 @@ var encSplash = {
         value: enckey,
         onchange: function(e) {
           enckey = e.target.value;
-          processDebugFields();
+          processFields();
         }
       }),
       m("label", {}, "plaintext"),
@@ -51,14 +51,15 @@ var encSplash = {
         value: plaintext,
         onchange: function(e) {
           plaintext = e.target.value;
-          processDebugFields();
+          processFields();
         }
       }, "plaintext please"),
       m("a", {href: "/#!/dec/" + deliverable}, "Click through to decrypt"),
-      m("div", {}, "debug01: " + btoa(enckey + plaintext)),
-      m("div", {}, "debug02: " + debug02),
       m("div", {}, "deliverable: " + deliverable),
-      m("div", {}, "debug04: " + debug04),
+      /* m("div", {}, "debug01: " + btoa(enckey + plaintext)),
+      m("div", {}, "debug02: " + debug02),
+      m("div", {}, "debug03: " + debug03),
+      m("div", {}, "debug04: " + debug04), */
     ];
     
     return(result);
