@@ -54,7 +54,7 @@ var encSplash = {
           processFields();
         }
       }, "plaintext please"),
-      m("a", {href: "/#!/dec/" + deliverable}, "Click through to decrypt"),
+      m("a", {href: "./#!/dec/" + deliverable}, "Click through to decrypt"),
       m("div", {}, "deliverable: " + deliverable),
       /* m("div", {}, "debug01: " + btoa(enckey + plaintext)),
       m("div", {}, "debug02: " + debug02),
