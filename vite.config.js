@@ -1,7 +1,7 @@
 export default {
   build: {
-      sourcemap: true,
-      minify: false
+      sourcemap: false,
+      minify: true
   },
   define: {
     BUILD_TIMESTAMP: new Date(),

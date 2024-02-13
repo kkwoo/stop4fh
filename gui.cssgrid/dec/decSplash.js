@@ -1,10 +1,17 @@
 import m from 'mithril';
+import { smlr } from '../../util.js';
 import { CryptoJS } from '../../CryptoJS.trimmed.js';
 import { preambleMC} from './preamble.js';
 
 var debug01 = '';
 
+// setup enckey field
 var enckey = 'open sesame';
+function resetEnckey() {
+  enckey = 'open sesame';
+}
+resetEnckey();
+
 var plaintext = 'not telling yet';
 var decSplash = {
   view: function(vnode) {
@@ -24,8 +31,13 @@ var decSplash = {
           plaintext = decrypted.toString(CryptoJS.enc.Latin1);
         }
       }),
+      m("button", {
+        onclick: function(e) {
+          resetEnckey();
+        }
+      }, "Reset"),
       m("div", {}, "Plaintext is: " + plaintext),      
-      m("div", {}, "Ciphertext is: " + vnode.attrs.crypttext),
+      m("div", {}, "Ciphertext is: " + smlr(vnode.attrs.crypttext)),
       /* m("div", {}, "salt: " + atob(vnode.attrs.crypttext)),      
       m("div", {}, "debug01: " + debug01),      */
     ];
