@@ -6,7 +6,9 @@ import { CryptoJS } from '../../CryptoJS.trimmed.js';
 import { preambleMC} from './preamble.js';
 
 var enckey = "passphrase please";
-var plaintext = "plaintext please";
+var plaintext = "Lorem ipsum dolor sit amet, " + 
+  "consectetur adipiscing elit. Vestibulum pulvinar, " +
+  "massa finibus interdum luctus, ipsum sem pulvinar."; // source: https://www.lipsum.com/
 var debug02 = "PBKDF2 output";
 var debug03 = "debug03";
 var debug04 = "debug04";
@@ -55,7 +57,9 @@ var encSplash = {
         }
       }, "plaintext please"),
       m("a", {href: "./#!/dec/" + deliverable}, "Click through to decrypt"),
-      m("div", {}, "deliverable: " + smlr(deliverable)),
+      m("div", {
+        onload: processFields() // make it process once after loading
+      }, "deliverable: " + smlr(deliverable)),
       // m("div", {}, "debug01: " + btoa(enckey + plaintext)),
       m("div", {}, "debug02: " + debug02),
       /* m("div", {}, "debug03: " + debug03),
