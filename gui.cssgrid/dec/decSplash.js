@@ -36,7 +36,10 @@ var decSplash = {
           resetEnckey();
         }
       }, "Reset"),
-      m("div", {}, "Plaintext is: " + plaintext),      
+      m("div", {}, [
+        m("div", "Plaintext is: "),
+        m("pre", plaintext),
+      ]),      
       m("div", {}, "Ciphertext is: " + smlr(vnode.attrs.crypttext)),
       /* m("div", {}, "salt: " + atob(vnode.attrs.crypttext)),      
       m("div", {}, "debug01: " + debug01),      */
