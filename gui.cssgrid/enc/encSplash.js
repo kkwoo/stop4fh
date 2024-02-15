@@ -56,10 +56,11 @@ var encSplash = {
           processFields();
         }
       }, "plaintext please"),
-      m("a", {href: "./#!/dec/" + deliverable}, "Click through to decrypt"),
-      m("div", {
-        onload: processFields() // make it process once after loading
-      }, "deliverable: " + smlr(deliverable)),
+      m("a", {
+        onload: processFields(), // make it process once after loading
+        href: "./#!/dec/" + deliverable
+      }, "Click through to decrypt"),
+      m("div", {}, "deliverable: " + smlr(deliverable)),
       // m("div", {}, "debug01: " + btoa(enckey + plaintext)),
       m("div", {}, "debug02: " + debug02),
       /* m("div", {}, "debug03: " + debug03),

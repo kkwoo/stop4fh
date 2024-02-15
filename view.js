@@ -14,7 +14,6 @@ function mountMithril() {
   var root = document.getElementById('mithrilSpace');
   m.route(root, `/enc`, {
     "/enc": encSplash,
-    "/dec": decSplash,
     "/dec/:crypttext": decSplash
   });
 }
